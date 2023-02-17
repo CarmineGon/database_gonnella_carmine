@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('brand');
             $table->text('description');
-            $table->float('price, 6, 2');
+            $table->float('price', 6, 2);
             $table->timestamps();
         });
     }

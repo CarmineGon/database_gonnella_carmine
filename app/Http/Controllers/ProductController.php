@@ -19,14 +19,27 @@ class ProductController extends Controller
         $price = $request -> input('price');
         // dd($request -> all(), $name, $brand, $description, $price);
 
-        $product = new Product();
-        $product -> name = $name;
-        $product -> brand = $brand;
-        $product -> description = $description;
-        $product -> price = $price;
-        dd($product);
+        // METODO SAVE
+        // $product = new Product();
+        // $product -> name = $name;
+        // $product -> brand = $brand;
+        // $product -> description = $description;
+        // $product -> price = $price;
+        // // dd($product);
         // $product -> save();
 
-        // return redirect() -> route('home') ->with('message', 'Il tuo articolo e stato publicato');
+        // METODO MASS ASSIGNMET (PIU USATO E CONSIGLIATO)
+        Product::create(
+            [
+                'name' => $name,
+                'brand' => $brand,
+                'description' => $description,
+                'price' => $price,
+            ]
+        );
+
+
+
+        return redirect() -> route('home') ->with('message', 'Il tuo articolo e stato publicato');
     }
 }
